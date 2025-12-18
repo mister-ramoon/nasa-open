@@ -6,6 +6,7 @@ import type { ApodImage, ApodQueryParams } from '../types/apod.type'
 export async function getApod(
     params?: ApodQueryParams
 ): Promise<ApodImage | ApodImage[]> {
+    // Construct query parameters
     const queryParams = new URLSearchParams({
         api_key: NASA_API_KEY,
     })
