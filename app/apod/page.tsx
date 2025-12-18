@@ -4,6 +4,9 @@ import type { ApodImage } from '@/lib/types/apod.type'
 // Import Services
 import { getApod } from '@/lib/services/apod.service'
 
+// Import Constants
+import { APOD_Constants } from '@/lib/constants/apod.constant'
+
 // Import Image
 import Image from 'next/image'
 
@@ -14,6 +17,14 @@ export default async function ApodPage() {
 
     return (
         <div className="container mx-auto p-4">
+            <div className="mb-6">
+                <h2 className="text-4xl font-extrabold">
+                    {APOD_Constants.title}
+                </h2>
+                <p className="mt-2 text-gray-600">
+                    {APOD_Constants.description}
+                </p>
+            </div>
             <h1 className="text-3xl font-bold mb-4">{apod.title}</h1>
             <p className="text-sm text-gray-600 mb-4">{apod.date}</p>
 
