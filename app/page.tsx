@@ -71,6 +71,11 @@ const apis = [
             'API to make NASA technology project data available in a machine-readable format',
         href: '/techport',
     },
+    {
+        name: 'TechTransfer',
+        description: 'Patents, Software, and Tech Transfer Reports',
+        href: '/techtransfer',
+    },
 ]
 
 export default function Home() {
@@ -82,7 +87,7 @@ export default function Home() {
                     Explore data from NASA&apos;s open APIs
                 </p>
             </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {apis.map((api) => (
                     <Link
                         key={api.href}
