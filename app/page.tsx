@@ -54,6 +54,11 @@ const apis = [
         description: 'Open Science Data Repository Public API',
         href: '/open',
     },
+    {
+        name: 'Satellite',
+        description: 'Satellite Situation Center Web Services',
+        href: '/satellite',
+    },
 ]
 
 export default function Home() {
