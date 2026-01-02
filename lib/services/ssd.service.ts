@@ -1,3 +1,4 @@
+// Import constants and types
 import {
     SSD_API_BASE_URL,
     SSD_ENDPOINTS,
