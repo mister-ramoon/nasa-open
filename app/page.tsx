@@ -29,6 +29,11 @@ const apis = [
         description: 'Earth Polychromatic Imaging Camera',
         href: '/epic',
     },
+    {
+        name: 'Exoplanet',
+        description: 'Exoplanet Archive',
+        href: '/exoplanet',
+    },
 ]
 
 export default function Home() {
