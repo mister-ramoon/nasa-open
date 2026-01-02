@@ -39,6 +39,11 @@ const apis = [
         description: 'Global Imagery Browse Services',
         href: '/gibs',
     },
+    {
+        name: 'InSight',
+        description: 'InSight Mars Lander',
+        href: '/insight',
+    },
 ]
 
 export default function Home() {
