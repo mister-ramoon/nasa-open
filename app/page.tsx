@@ -13,6 +13,12 @@ const apis = [
         description: 'Near Earth Object Web Service',
         href: '/asteroids',
     },
+    {
+        name: 'DONKI',
+        description:
+            'Space Weather Database Of Notifications, Knowledge, Information',
+        href: '/donki',
+    },
 ]
 
 export default function Home() {
