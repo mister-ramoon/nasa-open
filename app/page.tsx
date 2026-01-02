@@ -49,6 +49,11 @@ const apis = [
         description: 'NASA Image and Video Library',
         href: '/library',
     },
+    {
+        name: 'OPEN',
+        description: 'Open Science Data Repository Public API',
+        href: '/open',
+    },
 ]
 
 export default function Home() {
