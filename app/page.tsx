@@ -19,6 +19,11 @@ const apis = [
             'Space Weather Database Of Notifications, Knowledge, Information',
         href: '/donki',
     },
+    {
+        name: 'EONET',
+        description: 'Earth Observatory Natural Event Tracker',
+        href: '/eonet',
+    },
 ]
 
 export default function Home() {
