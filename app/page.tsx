@@ -24,6 +24,11 @@ const apis = [
         description: 'Earth Observatory Natural Event Tracker',
         href: '/eonet',
     },
+    {
+        name: 'EPIC',
+        description: 'Earth Polychromatic Imaging Camera',
+        href: '/epic',
+    },
 ]
 
 export default function Home() {
