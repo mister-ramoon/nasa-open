@@ -1,7 +1,7 @@
-// API Base URL
+// Export API Base URL
 export const TECHTRANSFER_API_BASE_URL = 'https://api.nasa.gov/techtransfer'
 
-// API Endpoints
+// Export API Endpoints
 export const TECHTRANSFER_ENDPOINTS = {
     PATENT: '/patent/',
     PATENT_ISSUED: '/patent_issued/',
@@ -9,7 +9,7 @@ export const TECHTRANSFER_ENDPOINTS = {
     SPINOFF: '/spinoff/',
 } as const
 
-// Constants
+// Export Constants
 export const TECHTRANSFER_Constants = {
     title: 'NASA Technology Transfer',
     description:
@@ -17,7 +17,7 @@ export const TECHTRANSFER_Constants = {
     dataSource: 'NASA Technology Transfer Program',
 }
 
-// NASA Centers
+// Export NASA Centers
 export const NASA_CENTERS = {
     ARC: {
         name: 'Ames Research Center',
@@ -61,7 +61,7 @@ export const NASA_CENTERS = {
     },
 } as const
 
-// Technology Categories
+// Export Technology Categories
 export const TECH_CATEGORIES = {
     AEROSPACE: 'Aerospace',
     COMMUNICATIONS: 'Communications',
@@ -80,7 +80,7 @@ export const TECH_CATEGORIES = {
     SENSORS: 'Sensors',
 } as const
 
-// Software Release Types
+// Export Software Release Types
 export const SOFTWARE_RELEASE_TYPES = {
     OPEN_SOURCE: 'Open Source',
     US_RELEASE: 'U.S. Release Only',
@@ -88,7 +88,7 @@ export const SOFTWARE_RELEASE_TYPES = {
     GENERAL: 'General Public Release',
 } as const
 
-// Type Colors for UI
+// Export Type Colors for UI
 export const TYPE_COLORS = {
     patent: {
         bg: 'bg-blue-100',
@@ -112,7 +112,7 @@ export const TYPE_COLORS = {
     },
 } as const
 
-// Example search terms for demo
+// Export Example search terms for demo
 export const EXAMPLE_SEARCHES = [
     'engine',
     'solar',
@@ -126,8 +126,8 @@ export const EXAMPLE_SEARCHES = [
     'laser',
 ] as const
 
-// Field mappings for raw API response arrays
-// Patent fields (based on API response order)
+// Export Field mappings for raw API response arrays
+// Export Patent fields (based on API response order)
 export const PATENT_FIELD_MAP = {
     0: 'id',
     1: 'patent_number',
@@ -141,7 +141,7 @@ export const PATENT_FIELD_MAP = {
     9: 'image_url',
 } as const
 
-// Software fields
+// Export Software fields
 export const SOFTWARE_FIELD_MAP = {
     0: 'id',
     1: 'title',
@@ -155,7 +155,7 @@ export const SOFTWARE_FIELD_MAP = {
     9: 'external_url',
 } as const
 
-// Spinoff fields
+// Export Spinoff fields
 export const SPINOFF_FIELD_MAP = {
     0: 'id',
     1: 'title',

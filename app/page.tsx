@@ -76,6 +76,17 @@ const apis = [
         description: 'Patents, Software, and Tech Transfer Reports',
         href: '/techtransfer',
     },
+    {
+        name: 'TLE',
+        description:
+            'Two line element data for earth-orbiting objects at a given point in time',
+        href: '/tle',
+    },
+    {
+        name: 'TREK',
+        description: 'Vesta/Moon/Mars Trek WMTS',
+        href: '/trek',
+    },
 ]
 
 export default function Home() {
