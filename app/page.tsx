@@ -44,6 +44,11 @@ const apis = [
         description: 'InSight Mars Lander',
         href: '/insight',
     },
+    {
+        name: 'Library',
+        description: 'NASA Image and Video Library',
+        href: '/library',
+    },
 ]
 
 export default function Home() {

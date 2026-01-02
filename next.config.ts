@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
                 hostname: 'gibs.earthdata.nasa.gov',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'images-assets.nasa.gov',
+                pathname: '/**',
+            },
         ],
     },
 }
