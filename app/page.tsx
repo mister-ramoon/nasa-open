@@ -34,6 +34,11 @@ const apis = [
         description: 'Exoplanet Archive',
         href: '/exoplanet',
     },
+    {
+        name: 'GIBS',
+        description: 'Global Imagery Browse Services',
+        href: '/gibs',
+    },
 ]
 
 export default function Home() {
