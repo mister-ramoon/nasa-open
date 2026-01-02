@@ -59,6 +59,12 @@ const apis = [
         description: 'Satellite Situation Center Web Services',
         href: '/satellite',
     },
+    {
+        name: 'SSD/CNEOS',
+        description:
+            'Solar System Dynamics / Center for Near Earth Object Studies',
+        href: '/ssd',
+    },
 ]
 
 export default function Home() {
