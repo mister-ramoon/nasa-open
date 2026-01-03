@@ -1,7 +1,11 @@
 // Import necessary types and fonts
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { Suspense } from 'react'
 import './globals.css'
+import Navbar from '@/components/Navbar'
+import BackToTop from '@/components/BackToTop'
+import Loading from './loading'
 
 // Load Geist Sans and Geist Mono fonts
 const geistSans = Geist({
@@ -57,8 +61,16 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                {/* Main content with top padding for fixed nav */}
-                <main>{children}</main>
+                {/* Global Navigation */}
+                <Navbar />
+
+                {/* Main content with Suspense for loading states */}
+                <Suspense fallback={<Loading />}>
+                    <main>{children}</main>
+                </Suspense>
+
+                {/* Back to top button */}
+                <BackToTop />
             </body>
         </html>
     )

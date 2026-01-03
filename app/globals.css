@@ -238,6 +238,12 @@ body::before {
     transform: translateY(-2px) scale(1.01);
 }
 
+/* Glass card inner wrapper for padding */
+.glass-card-inner {
+    position: relative;
+    z-index: 1;
+}
+
 /* Glass card with glow effect */
 .glass-card-glow {
     position: relative;
