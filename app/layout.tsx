@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import BackToTop from '@/components/BackToTop'
+import ScrollRestoration from '@/components/ScrollRestoration'
 import Loading from './loading'
 
 // Load Geist Sans and Geist Mono fonts
@@ -61,6 +62,9 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
+                {/* Scroll restoration on route change */}
+                <ScrollRestoration />
+
                 {/* Global Navigation */}
                 <Navbar />
 
