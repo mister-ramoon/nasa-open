@@ -1,5 +1,6 @@
 'use client'
 
+// Import necessary modules and types
 import { useState } from 'react'
 import type { Patent, Software, Spinoff } from '@/lib/types/techtransfer.type'
 
