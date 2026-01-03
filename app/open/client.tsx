@@ -816,19 +816,19 @@ export default function OpenClient({
                             <pre className="text-sm">
                                 <code className="text-green-400">
                                     {`# Get study files
-                                        curl "https://osdr.nasa.gov/osdr/data/osd/files/87"
+curl "https://osdr.nasa.gov/osdr/data/osd/files/87"
 
-                                        # Search for mouse studies
-                                        curl "https://osdr.nasa.gov/osdr/data/search?term=mouse&type=cgene"
+# Search for mouse studies
+curl "https://osdr.nasa.gov/osdr/data/search?term=mouse&type=cgene"
 
-                                        # Get mission details
-                                        curl "https://osdr.nasa.gov/geode-py/ws/api/mission/SpaceX-12"
+# Get mission details
+curl "https://osdr.nasa.gov/geode-py/ws/api/mission/SpaceX-12"
 
-                                        # Filter by organism
-                                        curl "https://osdr.nasa.gov/osdr/data/search?ffield=organism&fvalue=Mus%20musculus"
+# Filter by organism
+curl "https://osdr.nasa.gov/osdr/data/search?ffield=organism&fvalue=Mus%20musculus"
 
-                                        # Get all experiments
-                                        curl "https://osdr.nasa.gov/geode-py/ws/api/experiments"`}
+# Get all experiments
+curl "https://osdr.nasa.gov/geode-py/ws/api/experiments"`}
                                 </code>
                             </pre>
                         </div>
