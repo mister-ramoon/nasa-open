@@ -14,6 +14,7 @@ export const metadata = {
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function EpicPage() {
     // Fetch natural and enhanced images in parallel

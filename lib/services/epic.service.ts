@@ -16,11 +16,17 @@ async function fetchEPIC<T>(endpoint: string): Promise<T> {
     // Construct the full URL with API key
     const url = `${EPIC_API_BASE_URL}/${endpoint}?api_key=${NASA_API_KEY}`
 
-    // Make the API request with error handling
+    // Make the API request with error handling and timeout
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000)
+
     try {
         const response = await fetch(url, {
-            next: { revalidate: 3600 }, // Cache for 1 hour
+            signal: controller.signal,
+            cache: 'no-store',
         })
+
+        clearTimeout(timeoutId)
 
         if (!response.ok) {
             console.error(
@@ -31,6 +37,7 @@ async function fetchEPIC<T>(endpoint: string): Promise<T> {
 
         return response.json()
     } catch (error) {
+        clearTimeout(timeoutId)
         console.error('EPIC API fetch error:', error)
         return [] as T
     }

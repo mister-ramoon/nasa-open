@@ -24,18 +24,35 @@ export async function getAsteroidFeed(
     if (params?.start_date) queryParams.append('start_date', params.start_date)
     if (params?.end_date) queryParams.append('end_date', params.end_date)
 
-    // Make the API request
-    const response = await fetch(
-        `${ASTEROIDS_API_BASE_URL}/feed?${queryParams.toString()}`
-    )
+    // Make the API request with timeout
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000)
 
-    // Handle response errors
-    if (!response.ok) {
-        throw new Error(`Asteroid Feed API Error: ${response.statusText}`)
+    try {
+        const response = await fetch(
+            `${ASTEROIDS_API_BASE_URL}/feed?${queryParams.toString()}`,
+            {
+                signal: controller.signal,
+                cache: 'no-store',
+            }
+        )
+
+        clearTimeout(timeoutId)
+
+        // Handle response errors
+        if (!response.ok) {
+            throw new Error(`Asteroid Feed API Error: ${response.statusText}`)
+        }
+
+        // Return the parsed JSON response
+        return response.json()
+    } catch (error) {
+        clearTimeout(timeoutId)
+        if (error instanceof Error && error.name === 'AbortError') {
+            throw new Error('Asteroid Feed API Error: Request timeout')
+        }
+        throw error
     }
-
-    // Return the parsed JSON response
-    return response.json()
 }
 
 // Fetch Asteroid Browse Data

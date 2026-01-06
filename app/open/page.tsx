@@ -8,12 +8,13 @@ import OpenClient from './client'
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function OpenPage() {
-    // Fetch featured studies and missions in parallel
+    // Fetch featured studies and missions in parallel with error handling
     const [featuredStudies, missions] = await Promise.all([
-        getFeaturedStudies(),
-        getAllMissions(),
+        getFeaturedStudies().catch(() => []),
+        getAllMissions().catch(() => []),
     ])
 
     return (

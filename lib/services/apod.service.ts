@@ -18,14 +18,30 @@ export async function getApod(
     if (params?.count) queryParams.append('count', params.count.toString())
     if (params?.thumbs) queryParams.append('thumbs', 'true')
 
-    // Make the API request
-    const response = await fetch(`${APOD_API_URL}?${queryParams.toString()}`)
+    // Make the API request with timeout
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
 
-    // Handle response errors
-    if (!response.ok) {
-        throw new Error(`APOD API Error: ${response.statusText}`)
+    try {
+        const response = await fetch(`${APOD_API_URL}?${queryParams.toString()}`, {
+            signal: controller.signal,
+            cache: 'no-store',
+        })
+
+        clearTimeout(timeoutId)
+
+        // Handle response errors
+        if (!response.ok) {
+            throw new Error(`APOD API Error: ${response.statusText}`)
+        }
+
+        // Return the parsed JSON response
+        return response.json()
+    } catch (error) {
+        clearTimeout(timeoutId)
+        if (error instanceof Error && error.name === 'AbortError') {
+            throw new Error('APOD API Error: Request timeout')
+        }
+        throw error
     }
-
-    // Return the parsed JSON response
-    return response.json()
 }

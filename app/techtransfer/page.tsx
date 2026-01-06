@@ -10,6 +10,7 @@ import TechtransferClient from './client'
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function TechtransferPage() {
     // Fetch sample data with error handling

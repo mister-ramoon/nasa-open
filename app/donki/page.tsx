@@ -11,6 +11,7 @@ export const metadata = {
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function DonkiPage() {
     // Get dates for last 30 days
@@ -22,11 +23,11 @@ export default async function DonkiPage() {
     const startDate = thirtyDaysAgo.toISOString().split('T')[0]
     const endDate = today.toISOString().split('T')[0]
 
-    // Fetch data in parallel
+    // Fetch data in parallel with error handling
     const [cmeEvents, flrEvents, gstEvents] = await Promise.all([
-        getCME({ startDate, endDate }),
-        getFLR({ startDate, endDate }),
-        getGST({ startDate, endDate }),
+        getCME({ startDate, endDate }).catch(() => []),
+        getFLR({ startDate, endDate }).catch(() => []),
+        getGST({ startDate, endDate }).catch(() => []),
     ])
 
     return (

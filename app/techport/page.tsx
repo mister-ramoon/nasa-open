@@ -14,6 +14,7 @@ import TechportClient from './client'
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function TechportPage() {
     // Fetch data in parallel with error handling

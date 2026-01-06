@@ -6,6 +6,9 @@ import {
 } from '@/lib/services/gibs.service'
 import GibsClient from './client'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default function GibsPage() {
     // Fetch data
     const layers = getPopularLayers()

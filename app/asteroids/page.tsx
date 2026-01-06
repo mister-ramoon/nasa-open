@@ -12,6 +12,7 @@ export const metadata = {
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function AsteroidsPage() {
     // Get today's date and 7 days ago
@@ -22,22 +23,33 @@ export default async function AsteroidsPage() {
     const startDate = sevenDaysAgo.toISOString().split('T')[0]
     const endDate = today.toISOString().split('T')[0]
 
-    // Fetch asteroid data
-    const data = await getAsteroidFeed({
-        start_date: startDate,
-        end_date: endDate,
-    })
+    try {
+        // Fetch asteroid data
+        const data = await getAsteroidFeed({
+            start_date: startDate,
+            end_date: endDate,
+        })
 
-    // Get all asteroids from all dates
-    const allAsteroids: Asteroid[] = Object.values(
-        data.near_earth_objects
-    ).flat()
+        // Get all asteroids from all dates
+        const allAsteroids: Asteroid[] = Object.values(
+            data.near_earth_objects
+        ).flat()
 
-    return (
-        <AsteroidsClient
-            allAsteroids={allAsteroids}
-            startDate={startDate}
-            endDate={endDate}
-        />
-    )
+        return (
+            <AsteroidsClient
+                allAsteroids={allAsteroids}
+                startDate={startDate}
+                endDate={endDate}
+            />
+        )
+    } catch (error) {
+        console.error('Error fetching asteroids:', error)
+        return (
+            <AsteroidsClient
+                allAsteroids={[]}
+                startDate={startDate}
+                endDate={endDate}
+            />
+        )
+    }
 }

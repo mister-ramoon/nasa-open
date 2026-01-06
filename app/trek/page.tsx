@@ -15,6 +15,9 @@ import {
 } from '@/lib/services/trek.service'
 import TrekClient from './client'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default function TrekPage() {
     // Get statistics
     const stats = getTrekStats()

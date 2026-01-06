@@ -11,12 +11,13 @@ export const metadata = {
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function EonetPage() {
-    // Fetch events and categories in parallel
+    // Fetch events and categories in parallel with error handling
     const [eventsData, categoriesData] = await Promise.all([
-        getEvents({ status: 'open', limit: 50 }),
-        getCategories(),
+        getEvents({ status: 'open', limit: 50 }).catch(() => ({ events: [] })),
+        getCategories().catch(() => ({ categories: [] })),
     ])
 
     return (

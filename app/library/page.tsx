@@ -11,13 +11,14 @@ import LibraryClient from './client'
 
 // Force dynamic rendering to avoid build-time API calls
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function LibraryPage() {
-    // Fetch featured content and recent images
+    // Fetch featured content and recent images with error handling
     const [featured, recentMars, recentMoon] = await Promise.all([
-        getFeaturedContent(),
-        searchAndProcess({ q: 'Mars', media_type: 'image', page_size: 6 }),
-        searchAndProcess({ q: 'Moon', media_type: 'image', page_size: 6 }),
+        getFeaturedContent().catch(() => []),
+        searchAndProcess({ q: 'Mars', media_type: 'image', page_size: 6 }).catch(() => ({ items: [], totalHits: 0 })),
+        searchAndProcess({ q: 'Moon', media_type: 'image', page_size: 6 }).catch(() => ({ items: [], totalHits: 0 })),
     ])
 
     return (
