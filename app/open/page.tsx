@@ -6,6 +6,9 @@ import {
 import { getAllMissions, getFeaturedStudies } from '@/lib/services/open.service'
 import OpenClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function OpenPage() {
     // Fetch featured studies and missions in parallel
     const [featuredStudies, missions] = await Promise.all([

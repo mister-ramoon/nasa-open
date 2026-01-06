@@ -8,6 +8,9 @@ import {
 } from '@/lib/services/satellite.service'
 import SatelliteClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function SatellitePage() {
     // Fetch observatories and ground stations in parallel
     const [allObservatories, activeObservatories, groundStations] =

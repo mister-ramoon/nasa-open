@@ -9,6 +9,9 @@ export const metadata = {
         'Earth Observatory Natural Event Tracker - Monitor natural events happening around the world including wildfires, storms, volcanoes, and more.',
 }
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function EonetPage() {
     // Fetch events and categories in parallel
     const [eventsData, categoriesData] = await Promise.all([

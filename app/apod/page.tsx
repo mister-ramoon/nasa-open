@@ -10,6 +10,9 @@ import { APOD_Constants } from '@/lib/constants/apod.constant'
 // Import Client Component
 import ApodClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 // APOD Page Component
 export default async function ApodPage() {
     // Fetch APOD Data

@@ -17,6 +17,9 @@ import {
 } from '@/lib/services/tle.service'
 import TleClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function TlePage() {
     // Fetch data in parallel
     const [recentTLEs, wellKnownTLEs, stats, issTLE] = await Promise.all([

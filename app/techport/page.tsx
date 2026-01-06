@@ -12,6 +12,9 @@ import {
 } from '@/lib/services/techport.service'
 import TechportClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function TechportPage() {
     // Fetch data in parallel with error handling
     const [summary, recentProjectsSummary, sampleProjects] = await Promise.all([

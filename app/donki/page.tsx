@@ -9,6 +9,9 @@ export const metadata = {
         'Database Of Notifications, Knowledge, Information - Real-time space weather monitoring including CME, solar flares, and geomagnetic storms.',
 }
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function DonkiPage() {
     // Get dates for last 30 days
     const today = new Date()

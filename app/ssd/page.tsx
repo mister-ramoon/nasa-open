@@ -12,6 +12,9 @@ import {
 } from '@/lib/services/ssd.service'
 import SsdClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function SsdPage() {
     // Fetch all data in parallel with individual error handling
     const [

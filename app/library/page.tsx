@@ -9,6 +9,9 @@ import {
 } from '@/lib/services/library.service'
 import LibraryClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function LibraryPage() {
     // Fetch featured content and recent images
     const [featured, recentMars, recentMoon] = await Promise.all([

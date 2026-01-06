@@ -12,6 +12,9 @@ export const metadata = {
         'Earth Polychromatic Imaging Camera - Daily views of Earth from the DSCOVR spacecraft at Lagrange point 1.',
 }
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function EpicPage() {
     // Fetch natural and enhanced images in parallel
     const [naturalImages, enhancedImages] = await Promise.all([

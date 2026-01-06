@@ -8,6 +8,9 @@ import {
 import { getSampleData } from '@/lib/services/techtransfer.service'
 import TechtransferClient from './client'
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function TechtransferPage() {
     // Fetch sample data with error handling
     const sampleData = await getSampleData().catch(() => ({

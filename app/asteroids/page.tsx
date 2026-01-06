@@ -10,6 +10,9 @@ export const metadata = {
         'Track and analyze potentially hazardous asteroids approaching Earth with real-time data from NASA.',
 }
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic'
+
 export default async function AsteroidsPage() {
     // Get today's date and 7 days ago
     const today = new Date()
