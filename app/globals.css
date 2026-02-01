@@ -152,10 +152,9 @@ body::before {
 /* Floating particles effect */
 .particles {
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 10px;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
@@ -165,11 +164,11 @@ body::before {
 
 .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 10px;
+    height: 10px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    animation: float 15s infinite ease-in-out;
+    animation: float 5s infinite ease-in-out;
 }
 
 @keyframes float {
